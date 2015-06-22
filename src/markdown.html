@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>STATS DATA DATE Extension Command</title>
+
+<link rel="stylesheet" type="text/css" href="extsyntax.css" />
+
+
+
+
+
+</head>
+
+<body>
+<h1>STATS DATA DATE Extension Command</h1>
+
+<p>Execute an SPSS DATE command taking the starting date from the data.</p>
+<div class="syntax">
+<p>STATS DATA DATE 
+SPSSDATE=<em>variable</em><sup>&#42;</sup><br/>
+DATESTRUCTURE = <em>periodicities</em><sup>&#42;</sup><br/>
+WEEKPERIOD=<strong>periodicity</strong><br/>
+BY=<em>increment</em></p>
+
+<p>/HELP</p>
+
+<p><sup>&#42;</sup> Required<br/>
+<sup>&#42;&#42;</sup> Default</p>
+</div>
+<p>/HELP displays this text and does nothing else.</p>
+
+
+<pre class="example"><code>STATS DATA DATE SPSSDATE = datevar DATESTRUCTURE=YM.
+constructs the starting date from variable datevar and assigns a period of 12.
+</code></pre>
+
+<p><strong>SPSSDATE</strong> specifies an SPSS date-format variable.</p>
+
+<p><strong>DATESTRUCTURE</strong> specifies the date/time structure  as a string of letters drawn from Y Q M W H I S with no spaces
+inbetween.  The abbreviations are the same as for the DATE command except that MI (minute) is I, but
+CYCLE and OBS are not supported.</p>
+
+<p><strong>WEEKPERIOD</strong> applies only to W (week).  The other periods are assumed to have
+their natural periodicity.  W defaults to 7 but might usefully be set to 5.  However,
+the starting week is calculated from the first date value  based on a 7-day week
+where week 1 begins on January 1.</p>
+
+<p><strong>BY</strong> specifies the increment between observations and defaults to 1.  With
+DATESTRUCTURE=YM, for example, BY = 2 would mean that the data are monthly but
+only observed every other month.</p>
+
+<p>&copy; Copyright IBM Corp. 1989, 2014</p>
+
+</body>
+
+</html>
+
