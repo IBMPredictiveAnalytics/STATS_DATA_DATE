@@ -1,11 +1,11 @@
 # STATS_DATA_DATE
 ## Define date structure based on dataset values
- This procedure defines the date structure of the dataset 
+ This procedure defines the date structure of the dataset based on the first value of an SPSS date variable.
 
 ---
 Requirements
 ----
-- IBM SPSS Statistics 18 or later
+- IBM SPSS Statistics 18 or later and the corresponding IBM SPSS Statistics-Integration Plug-in for Python.
 
 ---
 Installation intructions
