@@ -1,10 +1,13 @@
-"""STATS DATA DATE extension command"""
-
-#Licensed Materials - Property of IBM
-#IBM SPSS Products: Statistics General
-#(c) Copyright IBM Corp. 2014
-#US Government Users Restricted Rights - Use, duplication or disclosure 
-#restricted by GSA ADP Schedule Contract with IBM Corp.
+#/***********************************************************************
+# * Licensed Materials - Property of IBM
+# *
+# * IBM SPSS Products: Statistics Common
+# *
+# * (C) Copyright IBM Corp. 1989, 2020
+# *
+# * US Government Users Restricted Rights - Use, duplication or disclosure
+# * restricted by GSA ADP Schedule Contract with IBM Corp.
+# ************************************************************************/
 
 
 helptext = r"""STATS DATA DATE SPSSDATE=varname DATESTRUCTURE = list of periodicities
@@ -73,7 +76,7 @@ def definedate(spssdate, datestructure,
     datestructset = set(datestruct)
     if len(datestructset) != len(datestructure):
         raise ValueError(_("""The date structure parameter contains a duplicate entry: %s""") % datestructure)
-    baditems = [v for v in datestruct if not v in datestructdict.keys()]
+    baditems = [v for v in datestruct if not v in list(datestructdict.keys())]
     if baditems:
         raise ValueError(_("""Invalid date structure parameter(s): %s""") % " ".join(baditems))
     if datestructset.intersection(longperiod) and datestructset.intersection(shortperiod):
@@ -111,7 +114,7 @@ def definedate(spssdate, datestructure,
 def Run(args):
     """Execute the STATS DATA DATE extension command"""
 
-    args = args[args.keys()[0]]
+    args = args[list(args.keys())[0]]
 
     oobj = Syntax([
         Template("SPSSDATE", subc="",  ktype="existingvarlist", var="spssdate"),
@@ -128,7 +131,7 @@ def Run(args):
         def _(msg):
             return msg
     # A HELP subcommand overrides all else
-    if args.has_key("HELP"):
+    if "HELP" in args:
         #print helptext
         helper()
     else:
@@ -148,7 +151,7 @@ def helper():
     # webbrowser.open seems not to work well
     browser = webbrowser.get()
     if not browser.open_new(helpspec):
-        print("Help file not found:" + helpspec)
+        print(("Help file not found:" + helpspec))
 try:    #override
     from extension import helper
 except:
