@@ -1,15 +1,17 @@
 Name: STATS_DATA_DATE
+Display-Name: Data from Date
 Dialog-Specs: STATS_DATA_DATE.spd
 Command-Specs: STATS_DATA_DATE.xml
 Code-Files: STATS_DATA_DATE.py
-Misc-Files: markdown.html,extsyntax.css,IBMdialogicon.png
+Misc-Files: extsyntax.css,IBMdialogicon.png,markdown.html
 Summary: Define date structure based on dataset values
 Description: This procedure defines the date structure of the dataset 
  based on the first value of an SPSS date variable
 Author: JKP, IBM SPSS
-Version: 1.0.4
-Product-Version: 18
+Version: 2.0.0
+Product-Version: 24
 Date: Oct, 2012
 Categories: spss date
 Plugins: Python
+Python-Version: 3
 Translation-Catalogues: lang
